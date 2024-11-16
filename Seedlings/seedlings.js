@@ -41,12 +41,17 @@ fetch('seedlings.json')
         const text = document.createElement('p');
         text.classList.add('card-text');
         text.textContent = applet.description;
+
+        const sources = document.createElement('p');
+        sources.classList.add('card-text');
+        sources.textContent = applet.description;
     
       
     
         cardBody.appendChild(title1);
         cardBody.appendChild(title2);
         cardBody.appendChild(text);
+        cardBody.appendChild(sources);
         card.appendChild(img);
         card.appendChild(cardBody);
         appletContainer.appendChild(card);
