@@ -1,6 +1,6 @@
 let applets = [];
 
-fetch('applet.json')
+fetch('seedlings.json')
   .then(response => response.json())
   .then(data => {
     applets = data; 
@@ -42,18 +42,10 @@ fetch('applet.json')
         text.classList.add('card-text');
         text.textContent = applet.description;
     
-        const button = document.createElement('a');
-        button.classList.add('btn');
-        button.href = applet.link;
-        button.textContent = 'Go to Applet';
-        button.style.background = 'linear-gradient(to right, purple, #00f)';
-        button.style.color = 'white';
-
       
     
         cardBody.appendChild(title1);
         cardBody.appendChild(title2);
-        cardBody.appendChild(button);
         cardBody.appendChild(text);
         card.appendChild(img);
         card.appendChild(cardBody);
