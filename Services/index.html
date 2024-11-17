@@ -6,6 +6,56 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="../style.css">
   <title>EcoProtean Proteus</title>
+
+  <style>
+       .title {
+  margin-top: 1rem;
+  margin-left: 3rem;
+  text-align: center;
+  color: aliceblue;
+  font-family: Georgia;
+}
+
+
+.applet-flex-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 2rem;
+  margin-left: 2rem;
+  width: 100%;
+  align-items: stretch;
+}
+
+.card {
+  width: 15rem;
+  margin: 0.5rem;
+}
+
+
+body{
+  font-family: 'Poppins', sans-serif;
+  color: #333;
+  position: relative;
+  height: 110vh;
+  background: linear-gradient(135deg,
+      #205468 5%,
+      /* lightest part (light) */
+      #256e68 25%,
+      /* slight light */
+      #2f7874 50%,
+      /* darker part (shadow) */
+      #29716f 75%,
+      /* slight shadow */
+      #1e4b5d 100%);
+  /* darkest part (shadow) */
+  background-size: 200% 200%;
+  animation: gradientAnimation 15s ease infinite;
+}
+
+    
+  </style>
  
 </head>
 
@@ -28,12 +78,12 @@
     <div class="hero-content">
       <img src="../Photo logo/EcoProteous logo.jpg" alt="Your Name" class="profile-image">
 
-     <h2>Our Services</h2>
 
-     <br>
-     
+      <h1 class="title">Our Services</h1>
+  <div class="applet-flex-container" id="appletContainer"></div>
 
-     <a href="../Seedlings/index.html"> List of Seedlings</a>
+      <script src="services.js"></script>
+
   </section>
   <div class="shape shape1"></div>
   <div class="shape shape2"></div>

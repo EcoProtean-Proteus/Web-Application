@@ -1,0 +1,16 @@
+[
+  {
+      "title1": "List of Seedlings",
+      "title2": "",
+      "description":"",
+      "imageUrl": "../Seedling Photo/narraseedling.jpg",
+      "link":"../Seedlings/"
+  },
+  {
+      "title1": "Manolo Fortich Map",
+      "title2": "Landslide prone areas",
+      "description":"",
+      "imageUrl": "../Seedling Photo/acacia.jpg",
+      "link":""
+  }
+]
