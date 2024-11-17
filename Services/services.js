@@ -45,7 +45,7 @@ fetch('services.json')
         const button = document.createElement('a');
         button.classList.add('btn');
         button.href = applet.link;
-        button.textContent = 'Go to Applet';
+        button.textContent = 'more';
         button.style.background = 'linear-gradient(to right, purple, #00f)';
         button.style.color = 'white';
 
