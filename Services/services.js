@@ -31,11 +31,14 @@ fetch('services.json')
         const title1 = document.createElement('h5');
         title1.classList.add('card-title');
         title1.textContent = applet.title1;
+        title1.style.color = 'black';
       
 
         const title2 = document.createElement('h5');
         title2.classList.add('card-title');
         title2.textContent = applet.title2;
+        title2.style.color = 'black';
+        title2.style.marginBottom = '20px';
         
     
         const text = document.createElement('p');
@@ -46,8 +49,12 @@ fetch('services.json')
         button.classList.add('btn');
         button.href = applet.link;
         button.textContent = 'more';
-        button.style.background = 'linear-gradient(to right, purple, #00f)';
+        button.style.background = 'blue-green';
         button.style.color = 'white';
+        button.style.transition = 'background-color 0.3s ease'; 
+
+
+        
 
       
     
