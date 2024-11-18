@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Exit HUHU</title>
+
+</head>
+<style>
+    .hero-content{
+        border: 5rem;
+
+    }
+</style>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="Photo logo/EcoProteous logo.jpg" alt="Logo">
+            </div>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="./Services/">Services</a></li>
+                <li><a href="./About/">About</a></li>
+                <li><a href="./Feedback/">Feedback</a></li>
+                <li><a href="Exit.html">Exit</a></li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1> Going somewhere? </h1>
+            <p>Thank you for visiting! Click the button below to go to another website. Credits to wave to earth. </p>
+            <h1> ^ m ^ </h1>
+            <form id="logoutForm">
+                <button type="submit" class="logout-button">Exit</button>
+            </form>
+            <p id="error-message" style="color: red;"></p>
+        </div>
+    </section>
+
+    <script>
+
+        document.getElementById("logoutForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+
+
+            const youtubeLink = "https://www.youtube.com/watch?v=Q49pnA4jsp8&list=RDQ49pnA4jsp8&start_radio=1";
+            window.location.href = youtubeLink;
+        });
+    </script>
+
+
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+</body>
+<footer>
+    <div class="footer-content">
+        <p>&copy; 2024 EcoProtean Proteus Ranin. All rights reserved.</p>
+        <p>Contact me: <a href="mailto:your.email@example.com">email@gmail.com</a></p>
+        <div class="social-links">
+            <a href="https://github.com/lowPrio12" target="_blank">GitHub</a> |
+            <a href="https://www.Facebook.com "target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com " target="_blank">Instagram</a>
+        </div>
+    </div>
+</footer>
+
+</html>
