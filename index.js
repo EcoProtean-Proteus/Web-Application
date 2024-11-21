@@ -22,7 +22,7 @@ fetch('index.json')
         const img = document.createElement('img');
         img.src = applet.imageUrl;
         img.classList.add('card-img-top');
-        img.height = 180;
+        img.height = 200;
 
         const cardBody = document.createElement('div');
         cardBody.classList.add('card-body');
@@ -48,7 +48,7 @@ fetch('index.json')
         const button = document.createElement('a');
         button.classList.add('btn');
         button.href = applet.link;
-        button.textContent = 'more';
+        button.textContent = 'More';
         button.style.background = 'blue-green';
         button.style.color = 'white';
         button.style.transition = 'background-color 0.3s ease'; 
@@ -60,8 +60,8 @@ fetch('index.json')
     
         cardBody.appendChild(title1);
         cardBody.appendChild(title2);
-        cardBody.appendChild(button);
         cardBody.appendChild(text);
+        cardBody.appendChild(button);
         card.appendChild(img);
         card.appendChild(cardBody);
         appletContainer.appendChild(card);
