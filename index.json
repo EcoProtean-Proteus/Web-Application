@@ -8,7 +8,7 @@
     {
         "title1": "EcoProteanProteus",
         "description": "Company Website",
-        "imageUrl": "../Photo logo/EcoProteous logo.jpg",
+        "imageUrl": "./Photo logo/EcoProteous logo.jpg",
         "link":"./Web App/"
     }
 ]
