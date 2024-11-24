@@ -13,6 +13,86 @@
     crossorigin="anonymous"></script>
 
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-image: url(https://constructive-voices.com/wp-content/uploads/2024/04/philippines-sacred-natural-sites-and-biodiversity-2-1170x669.jpg);
+      background-repeat: no-repeat;
+      background-size: cover;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      color: #b1caff;
+      position: relative;
+      height: 110vh;
+      background: linear-gradient(135deg,
+          #205468 5%,
+          /* lightest part (light) */
+          #256e68 25%,
+          /* slight light */
+          #2f7874 50%,
+          /* darker part (shadow) */
+          #29716f 75%,
+          /* slight shadow */
+          #1e4b5d 100%);
+      /* darkest part (shadow) */
+      background-size: 200% 200%;
+      animation: gradientAnimation 15s ease infinite;
+    }
+
+
+
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.1;
+      animation: float 6s ease-in-out infinite;
+    }
+
+    .shape1 {
+      width: 200px;
+      height: 200px;
+      background: rgba(255, 255, 255, 0.2);
+      top: 10%;
+      left: 15%;
+    }
+
+    .shape2 {
+      width: 300px;
+      height: 300px;
+      background: rgba(255, 255, 255, 0.2);
+      top: 50%;
+      right: 10%;
+    }
+
+    .shape3 {
+      width: 150px;
+      height: 150px;
+      background: rgba(255, 255, 255, 0.2);
+      bottom: 20%;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(0);
+      }
+
+      50% {
+        transform: translateY(-60px);
+      }
+
+      100% {
+        transform: translateY(0);
+      }
+    }
+
     .title {
       margin-top: 1rem;
       margin-left: 3rem;
@@ -115,6 +195,12 @@
 
   <h1 class="title">EcoProtean Proteus</h1>
   <div class="applet-flex-container" id="appletContainer"></div>
+
+  <div class="shape shape1"></div>
+  <div class="shape shape2"></div>
+  <div class="shape shape3"></div>
+  <div class="shape shape4"></div>
+  <div class="shape shape5"></div>
 
   <script src="index.js"></script>
 
