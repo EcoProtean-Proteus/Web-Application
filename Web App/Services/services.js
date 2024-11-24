@@ -45,10 +45,8 @@ function renderApplets(applets) {
     const button = document.createElement('a');
     button.classList.add('btn');
     button.href = applet.link;
-    button.textContent = 'more';
-
-    // Apply class for button styling (background color and hover effects will be handled in CSS)
-    button.classList.add('styled-btn');  // Added class for button styling
+    button.textContent = 'More';
+    button.classList.add('btn'); 
 
     cardBody.appendChild(title1);
     cardBody.appendChild(title2);
