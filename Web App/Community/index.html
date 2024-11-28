@@ -7,9 +7,84 @@
   <link rel="stylesheet" href="../style.css">
   <title>EcoProtean Proteus</title>
   <style>
-    .header a.active {
-      background-color: rgb(54, 54, 1);
+    .comment-container {
+      margin: 20px auto;
+      max-width: 600px;
+      font-family: Arial, sans-serif;
+    }
+
+    .comment-item {
+      background-color: #f9f9f9;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 15px;
+      margin-bottom: 15px;
+    }
+
+    .comment-item p {
+      font-size: 16px;
+      color: black;
+      margin: 0;
+    }
+
+    .comment-footer {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .react-btn {
+      background-color: transparent;
+      border: none;
+      color: #29716f;
+      cursor: pointer;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      margin-right: 10px;
+    }
+
+    .react-btn:hover {
+      text-decoration: underline;
+    }
+
+    .react-btn img {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    .reactions-count {
+      font-size: 14px;
+      color: #666;
+    }
+
+    .comment-form {
+      display: flex;
+      flex-direction: column;
+      max-width: 600px;
+      margin: 20px auto;
+    }
+
+    .comment-form textarea {
+      padding: 10px;
+      font-size: 16px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      margin-bottom: 10px;
+    }
+
+    .comment-form button {
+      background-color: #29716f;
       color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .comment-form button:hover {
+      background-color: #205468;
     }
 
     footer {
@@ -20,24 +95,6 @@
       position: relative;
       bottom: 0;
       width: 100%;
-    }
-
-    footer a {
-      color: white;
-      text-decoration: none;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    footer .social-links {
-      margin: 10px 0;
-    }
-
-    footer .social-links a {
-      margin: 0 10px;
-      font-size: 18px;
     }
   </style>
 </head>
@@ -60,24 +117,116 @@
 
   <section class="hero">
     <div class="hero-content">
-      <img src="../Photo logo/EcoProteous logo.jpg" alt="Your Name" class="profile-image">
-
+      <img src="../Photo logo/EcoProteous logo.jpg" alt="EcoProtean Proteus" class="profile-image">
+    </div>
   </section>
 
-  <div class="shape shape1"></div>
-  <div class="shape shape2"></div>
-  <div class="shape shape3"></div>
-  <div class="shape shape4"></div>
-  <div class="shape shape5"></div>
+  <div class="comment-container">
+    <ul id="commentList"></ul>
 
-  
+    <form id="commentForm" class="comment-form">
+      <textarea id="commentInput" rows="3" placeholder="Add a comment..."></textarea>
+      <button type="submit">Post Comment</button>
+    </form>
+  </div>
+
   <footer>
     <p>&copy; 2024 EcoProtean Proteus | All Rights Reserved</p>
-  
-    </div>
     <p><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
   </footer>
 
+  <script>
+    const commentForm = document.getElementById('commentForm');
+    const commentList = document.getElementById('commentList');
+    const commentInput = document.getElementById('commentInput');
+
+    let comments = [
+      { text: "This is an amazing initiative! Kudos to the team!", reactions: { like: 3, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "I'm excited to see where this project goes.", reactions: { like: 5, dislike: 1, heart: 1 }, userReacted: null },
+      { text: "Is there a way to contribute to the project?", reactions: { like: 2, dislike: 0, heart: 0 }, userReacted: null },
+      { text: "Great platform, I found a lot of useful information here.", reactions: { like: 4, dislike: 1, heart: 0 }, userReacted: null },
+      { text: "Can anyone share updates about the landslide prevention efforts?", reactions: { like: 1, dislike: 0, heart: 0 }, userReacted: null },
+      { text: "I love the community engagement! Keep it up!", reactions: { like: 7, dislike: 0, heart: 3 }, userReacted: null }
+    ];
+
+    function renderComments() {
+      commentList.innerHTML = '';
+      comments.forEach((comment, index) => {
+        const commentItem = document.createElement('li');
+        commentItem.classList.add('comment-item');
+
+        const commentText = document.createElement('p');
+        commentText.textContent = comment.text;
+
+        const likeButton = document.createElement('button');
+        likeButton.classList.add('react-btn');
+        likeButton.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/889/889140.png" alt="like"> Like`;
+        likeButton.addEventListener('click', function () {
+          if (comments[index].userReacted === null) {
+            comments[index].reactions.like++;
+            comments[index].userReacted = 'like';
+          } else {
+            alert('You can only react once per comment.');
+          }
+          renderComments();
+        });
+
+        const dislikeButton = document.createElement('button');
+        dislikeButton.classList.add('react-btn');
+        dislikeButton.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="dislike"> Dislike`;
+        dislikeButton.addEventListener('click', function () {
+          if (comments[index].userReacted === null) {
+            comments[index].reactions.dislike++;
+            comments[index].userReacted = 'dislike';
+          } else {
+            alert('You can only react once per comment.');
+          }
+          renderComments();
+        });
+
+        const heartButton = document.createElement('button');
+        heartButton.classList.add('react-btn');
+        heartButton.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/833/833472.png" alt="heart"> Heart`;
+        heartButton.addEventListener('click', function () {
+          if (comments[index].userReacted === null) {
+            comments[index].reactions.heart++;
+            comments[index].userReacted = 'heart';
+          } else {
+            alert('You can only react once per comment.');
+          }
+          renderComments();
+        });
+
+        const reactionsCount = document.createElement('span');
+        reactionsCount.classList.add('reactions-count');
+        reactionsCount.textContent = `👍 ${comment.reactions.like} | 👎 ${comment.reactions.dislike} | ❤️ ${comment.reactions.heart}`;
+
+        const commentFooter = document.createElement('div');
+        commentFooter.classList.add('comment-footer');
+        commentFooter.appendChild(likeButton);
+        commentFooter.appendChild(dislikeButton);
+        commentFooter.appendChild(heartButton);
+        commentFooter.appendChild(reactionsCount);
+
+        commentItem.appendChild(commentText);
+        commentItem.appendChild(commentFooter);
+        commentList.appendChild(commentItem);
+      });
+    }
+
+    commentForm.addEventListener('submit', function (event) {
+      event.preventDefault();
+      const newComment = commentInput.value.trim();
+
+      if (newComment) {
+        comments.push({ text: newComment, reactions: { like: 0, dislike: 0, heart: 0 }, userReacted: null });
+        renderComments();
+        commentInput.value = '';
+      }
+    });
+
+    renderComments();
+  </script>
 </body>
 
 </html>
