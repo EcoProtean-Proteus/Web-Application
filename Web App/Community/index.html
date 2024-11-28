@@ -141,12 +141,26 @@
     const commentInput = document.getElementById('commentInput');
 
     let comments = [
-      { text: "This is an amazing initiative! Kudos to the team!", reactions: { like: 3, dislike: 0, heart: 2 }, userReacted: null },
-      { text: "I'm excited to see where this project goes.", reactions: { like: 5, dislike: 1, heart: 1 }, userReacted: null },
-      { text: "Is there a way to contribute to the project?", reactions: { like: 2, dislike: 0, heart: 0 }, userReacted: null },
-      { text: "Great platform, I found a lot of useful information here.", reactions: { like: 4, dislike: 1, heart: 0 }, userReacted: null },
-      { text: "Can anyone share updates about the landslide prevention efforts?", reactions: { like: 1, dislike: 0, heart: 0 }, userReacted: null },
-      { text: "I love the community engagement! Keep it up!", reactions: { like: 7, dislike: 0, heart: 3 }, userReacted: null }
+      { text: "What’s the best seedling to prevent erosion in a high-rainfall area?", reactions: { like: 5, dislike: 0, heart: 3 }, userReacted: null },
+      { text: "How often should seedlings be replanted in landslide-prone regions?", reactions: { like: 3, dislike: 0, heart: 1 }, userReacted: null },
+      { text: "This project is incredible! I'm looking forward to the future impact.", reactions: { like: 7, dislike: 1, heart: 4 }, userReacted: null },
+      { text: "Has anyone tested the success rate of these seedlings in Bukidnon?", reactions: { like: 4, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "Are there specific soil types required for these seedlings to thrive?", reactions: { like: 6, dislike: 1, heart: 3 }, userReacted: null },
+      { text: "Can we get updates on how the EcoProtean Proteus map is progressing?", reactions: { like: 4, dislike: 0, heart: 1 }, userReacted: null },
+      { text: "I love the focus on sustainability. Let’s keep the conversation going!", reactions: { like: 8, dislike: 0, heart: 5 }, userReacted: null },
+      { text: "Is there a way for communities to contribute to the seedling selection process?", reactions: { like: 3, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "Can this platform help identify which areas are at most risk of landslides?", reactions: { like: 5, dislike: 0, heart: 3 }, userReacted: null },
+      { text: "What’s the average growth time for seedlings used in these projects?", reactions: { like: 2, dislike: 1, heart: 1 }, userReacted: null },
+      { text: "I’d like to volunteer for replanting efforts. Any events planned?", reactions: { like: 6, dislike: 0, heart: 4 }, userReacted: null },
+      { text: "Has anyone tried a combination of different seedlings for better coverage?", reactions: { like: 3, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "Is there a database of seedlings best suited for certain climates?", reactions: { like: 4, dislike: 1, heart: 1 }, userReacted: null },
+      { text: "This project has potential to greatly reduce landslides in our area. Amazing work!", reactions: { like: 9, dislike: 0, heart: 6 }, userReacted: null },
+      { text: "Can we track seedling growth through the app?", reactions: { like: 5, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "What species of trees work best in tropical regions?", reactions: { like: 6, dislike: 0, heart: 4 }, userReacted: null },
+      { text: "Would bamboo work well in landslide-prone areas?", reactions: { like: 3, dislike: 0, heart: 1 }, userReacted: null },
+      { text: "Is there any funding available to support local planting projects?", reactions: { like: 5, dislike: 0, heart: 3 }, userReacted: null },
+      { text: "Where can I find more information about seedling care?", reactions: { like: 4, dislike: 0, heart: 2 }, userReacted: null },
+      { text: "Thanks for sharing all these resources. Can’t wait to learn more!", reactions: { like: 7, dislike: 0, heart: 5 }, userReacted: null }
     ];
 
     function renderComments() {
@@ -174,15 +188,17 @@
         const dislikeButton = document.createElement('button');
         dislikeButton.classList.add('react-btn');
         dislikeButton.innerHTML = `<img src="https://cdn-icons-png.flaticon.com/512/1828/1828665.png" alt="dislike"> Dislike`;
-        dislikeButton.addEventListener('click', function () {
-          if (comments[index].userReacted === null) {
-            comments[index].reactions.dislike++;
-            comments[index].userReacted = 'dislike';
-          } else {
-            alert('You can only react once per comment.');
-          }
-          renderComments();
-        });
+        dislikeButton.addEventListener('click',
+
+          function () {
+            if (comments[index].userReacted === null) {
+              comments[index].reactions.dislike++;
+              comments[index].userReacted = 'dislike';
+            } else {
+              alert('You can only react once per comment.');
+            }
+            renderComments();
+          });
 
         const heartButton = document.createElement('button');
         heartButton.classList.add('react-btn');
@@ -197,16 +213,16 @@
           renderComments();
         });
 
-        const reactionsCount = document.createElement('span');
+        const reactionsCount = document.createElement('div');
         reactionsCount.classList.add('reactions-count');
         reactionsCount.textContent = `👍 ${comment.reactions.like} | 👎 ${comment.reactions.dislike} | ❤️ ${comment.reactions.heart}`;
 
         const commentFooter = document.createElement('div');
         commentFooter.classList.add('comment-footer');
+        commentFooter.appendChild(reactionsCount);
         commentFooter.appendChild(likeButton);
         commentFooter.appendChild(dislikeButton);
         commentFooter.appendChild(heartButton);
-        commentFooter.appendChild(reactionsCount);
 
         commentItem.appendChild(commentText);
         commentItem.appendChild(commentFooter);
@@ -214,17 +230,18 @@
       });
     }
 
-    commentForm.addEventListener('submit', function (event) {
-      event.preventDefault();
-      const newComment = commentInput.value.trim();
 
+    commentForm.addEventListener('submit', function (e) {
+      e.preventDefault();
+      const newComment = commentInput.value.trim();
       if (newComment) {
         comments.push({ text: newComment, reactions: { like: 0, dislike: 0, heart: 0 }, userReacted: null });
-        renderComments();
         commentInput.value = '';
+        renderComments();
       }
     });
 
+    // Initial render
     renderComments();
   </script>
 </body>
