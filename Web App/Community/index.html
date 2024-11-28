@@ -4,17 +4,77 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="../style.css">
+  
   <title>EcoProtean Proteus</title>
   <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #e3f9e5; /* Light pastel green */
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #b8e2d7; /* Soft green background */
+      padding: 20px;
+      text-align: center;
+    }
+
+    header nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    header .logo img {
+      width: 150px;
+    }
+
+    header ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    header ul li {
+      display: inline;
+      margin: 0 15px;
+    }
+
+    header ul li a {
+      color: #295c47; /* Dark green */
+      text-decoration: none;
+      font-size: 18px;
+    }
+
+    header ul li a:hover {
+      text-decoration: underline;
+    }
+
+    .hero {
+      background-color: #a1e6d9; /* Pastel mint background */
+      padding: 60px 0;
+      text-align: center;
+    }
+
+    .hero img {
+      width: 200px;
+      border-radius: 50%;
+      margin-top: 10px;
+    }
+
     .comment-container {
+      max-width: 800px;
       margin: 20px auto;
-      max-width: 600px;
-      font-family: Arial, sans-serif;
+      background-color: #ffffff;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     }
 
     .comment-item {
-      background-color: #f9f9f9;
+      background-color: #f5f8f3; /* Light greenish background */
       border: 1px solid #ddd;
       border-radius: 10px;
       padding: 15px;
@@ -23,7 +83,7 @@
 
     .comment-item p {
       font-size: 16px;
-      color: black;
+      color: #333;
       margin: 0;
     }
 
@@ -31,12 +91,13 @@
       display: flex;
       justify-content: space-between;
       margin-top: 10px;
+      align-items: center;
     }
 
     .react-btn {
       background-color: transparent;
       border: none;
-      color: #29716f;
+      color: #4d9f75; /* Soft green */
       cursor: pointer;
       font-size: 14px;
       display: flex;
@@ -62,7 +123,6 @@
     .comment-form {
       display: flex;
       flex-direction: column;
-      max-width: 600px;
       margin: 20px auto;
     }
 
@@ -72,10 +132,11 @@
       border: 1px solid #ddd;
       border-radius: 5px;
       margin-bottom: 10px;
+      background-color: #cbe3bb; /* Light greenish background */
     }
 
     .comment-form button {
-      background-color: #29716f;
+      background-color: #4d9f75; /* Soft green */
       color: white;
       border: none;
       padding: 10px;
@@ -84,18 +145,25 @@
     }
 
     .comment-form button:hover {
-      background-color: #205468;
+      background-color: #3d7a58;
     }
 
     footer {
-      background-color: rgba(51, 51, 51, 0.354);
+      background-color: #295c47; /* Dark green */
       color: white;
       text-align: center;
-      padding: 40px;
-      position: relative;
-      bottom: 0;
-      width: 100%;
+      padding: 30px 0;
     }
+
+    footer a {
+      color: #a1e6d9; /* Light mint */
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
   </style>
 </head>
 
@@ -110,7 +178,6 @@
         <li><a href="../Services/">Services</a></li>
         <li><a href="../About/">About</a></li>
         <li><a href="../Feedback/">Feedback</a></li>
-        <li><a href="../login.html">Log in/Sign Up</a></li>
       </ul>
     </nav>
   </header>
